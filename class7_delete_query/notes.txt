@@ -1,0 +1,72 @@
+Syntax:-
+
+deleteMany () => db.COLLECTION_NAME.deleteMany(DELETION_CRITERIA);
+
+
+> show dbs
+admin          0.000GB
+akshaychavhan  0.000GB
+config         0.000GB
+local          0.000GB
+
+
+> use akshaychavhan
+switched to db akshaychavhan
+
+
+
+> db
+akshaychavhan
+
+
+> show collections
+akshaychavhan
+akshaydata
+
+
+
+> db.akshaydata.find().pretty();
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FULL STACK",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : false
+}
+
+
+
+
+task
+1] Delete the field with type matches "Full Stack"
+
+
+> db.akshaydata.deleteMany({type : "FULL STACK"});
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+
+
+> db.akshaydata.find().pretty();
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : false
+}
+
+(WE ALSO remove() METHOD TO PERFORM SAME OPERATION ,but remove
+is depreciated)
+
+
+
+
+
+

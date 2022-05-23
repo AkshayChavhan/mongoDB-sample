@@ -1,0 +1,190 @@
+to check last data inseted in akshaydata collection
+
+ db.akshaydata.find().pretty()
+
+ MongoDB provides you 2 ways to insert database
+ 1] db.collection.insertOne() ;
+ 2] db.collection.insertMany() ;
+
+
+CRUD OPERATION
+A] CREATE
+
+to see collections  ->   show collections
+
+1] db.collection.insertOne() ;
+db.akshaydata.insertOne({name:"MongoDB"  , type :"Database" videos : 5 , active :true})
+
+
+2] db.collection.insertMany() ;
+ db.akshaydata.insertMany([{name:"NodeJs" , type:"backENd", videos:40,active:true},
+ {name:"JS",type:"frontend",videos:5,active:true},
+ {name:"python",type:"programming", videos : 50 ,active:false}]);
+
+to check data added in any of three collections
+
+ db.akshaydata.find().pretty();
+
+---------------------
+
+B] READ
+
+db.collection.find(query,pojection)
+
+
+>mongo          start MongoDB
+
+>show dbs       to see database
+admin          0.000GB
+akshaychavhan  0.000GB
+config         0.000GB
+local          0.000GB
+
+
+>use akshaychavhan (akshaychavhan is dbs to use it )
+switched to db akshaychavhan
+
+
+>db             to see active database
+akshaychavhan
+
+
+>show collections       to see collections
+akshaychavhan
+akshaydata
+
+
+
+>db.akshaydata.find()   to see all results from akshaydata
+{ "_id" : ObjectId("628b359c15b67ae9e78a54b7"), "name" : "ReactJs", "type" : "FrontEnd", "videos" : 80, "active" : true }
+{ "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"), "name" : "MongoDB", "type" : "Database", "videos" : 7, "active" : true }
+
+
+>db.akshaydata.find().pretty()  to see result in pretty formate
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FrontEnd",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : true
+}
+
+
+
+>db.akshaydata.find({name:"MongoDB"})       to get result having name field as "MongoDB"
+{ "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"), "name" : "MongoDB", "type" : "Database", "videos" : 7, "active" : true }
+
+
+
+
+>db.akshaydata.find({name:"MongoDB"}).pretty();    
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : true
+}
+
+
+
+>db.akshaydata.find({name:"MongoDB"} , {name:1}).pretty();              return only name area with id from field
+{ "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"), "name" : "MongoDB" }
+
+
+
+>db.akshaydata.find({name:"MongoDB"} , {name:1, _id:0}).pretty();
+{ "name" : "MongoDB" }
+
+
+
+
+> db.akshaydata.find({active:true}).pretty()
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FrontEnd",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : true
+}
+
+
+
+to get first 1 result from the list
+> db.akshaydata.find({active:true}).pretty().limit(1);
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FrontEnd",
+        "videos" : 80,
+        "active" : true
+}
+
+
+
+to get first 2 result from the list
+> db.akshaydata.find({active:true}).pretty().limit(2)
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FrontEnd",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : true
+}
+
+
+
+to get first result only
+> db.akshaydata.findOne({active:true});
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FrontEnd",
+        "videos" : 80,
+        "active" : true
+}
+
+
+
+
+skip first and return next /any  after first
+
+> db.akshaydata.find({active:true}).pretty().limit(1).skip(1);
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : true
+}
+
+
+
+
+
+
+
+
+
+

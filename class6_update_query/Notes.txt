@@ -1,0 +1,105 @@
+3] UPDATE in mongoDB :- 
+
+Syntax:-
+UpdateOne() => db.COLLECTION_NAME.updateOne(<filter>,<update>);
+UpdateMany() => db.COLLECTION_NAME.update(<filter>,<update>);
+
+start 
+>mongo
+
+get list of dbs
+> show dbs
+admin          0.000GB
+akshaychavhan  0.000GB
+config         0.000GB
+local          0.000GB
+
+
+use akshaychavhan db for process
+> use akshaychavhan
+switched to db akshaychavhan
+
+
+
+
+check n which DB you are working
+> db
+akshaychavhan
+
+
+
+to see list of collections
+>  show collections
+akshaychavhan
+akshaydata
+
+
+to get the data available in db name akshaydata 
+
+> db.akshaydata.find().pretty();
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FrontEnd",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : true
+}
+
+
+1] Update the JS ReactJs value to FULLSTACK
+(set operator replaces the value of a field with the specified value)
+
+
+> db.akshaydata.updateOne({name:"ReactJs"} , {$set: {type:"FULL STACK"}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+
+checking weather data updated or not
+> db.akshaydata.find().pretty();
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FULL STACK",      //UPDATED
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : true
+}
+
+
+2] Update all the fields with the type value =to "Database" and 
+set the value of status to False.
+
+
+> db.akshaydata.updateMany({type:"Database"},{$set : {active:false}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+
+to verify update
+> db.akshaydata.find().pretty();
+{
+        "_id" : ObjectId("628b359c15b67ae9e78a54b7"),
+        "name" : "ReactJs",
+        "type" : "FULL STACK",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("628b3c4e15b67ae9e78a54b9"),
+        "name" : "MongoDB",
+        "type" : "Database",
+        "videos" : 7,
+        "active" : false
+}
