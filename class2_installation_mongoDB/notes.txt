@@ -1,0 +1,110 @@
+goto website https://www.mongodb.com/   ->  products   -> Community Server  ->
+
+download the suggested version for your system   ->  install after download
+
+->      C:\Program Files\MongoDB\Server\5.0\bin 
+
+now insure the mongoDB installed properly or not
+
+go to cmd  ->  go to location in cmd ( use double inverted ) "C:\Program Files\MongoDB\Server\5.0\bin\mongod.exe" --version
+
+if you are getting this type of output then system set be with mongiDB
+
+db version v5.0.8
+Build Info: {
+    "version": "5.0.8",
+    "gitVersion": "c87e1c23421bf79614baf500fda6622bd90f674e",
+    "modules": [],
+    "allocator": "tcmalloc",
+    "environment": {
+        "distmod": "windows",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+
+
+Now do same for mongo 
+
+go to cmd  ->  go to location in cmd ( use double inverted ) "C:\Program Files\MongoDB\Server\5.0\bin\mongo.exe" --version
+
+if you are getting this type of output then system set be with mongiDB
+
+MongoDB shell version v5.0.8
+Build Info: {
+    "version": "5.0.8",
+    "gitVersion": "c87e1c23421bf79614baf500fda6622bd90f674e",
+    "modules": [],
+    "allocator": "tcmalloc",
+    "environment": {
+        "distmod": "windows",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+
+Now to run the go to "C:\Program Files\MongoDB\Server\5.0\bin" and run "mongo.exe"
+
+
+
+Now run address in cmd "C:\Program Files\MongoDB\Server\5.0\bin\mongo.exe"
+if you are getting ">" sign after above running then all is set.
+
+now if you type in cmd
+>  show dbs
+
+then you will get by default dbs available in system
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+
+Now to run the mongo everytime we need to type address  on cmd
+"C:\Program Files\MongoDB\Server\5.0\bin\mongo.exe"
+to prevent from this long process we need to set system environment.
+
+to set environment:- search "edit system environment" and enter into into
+inside new table -> environment variables -> path -> new ->
+paste "C:\Program Files\MongoDB\Server\5.0\bin" and  OK -> OK
+
+
+now if you enter in cmd  "mongo --version"
+and get result as 
+
+MongoDB shell version v5.0.8
+Build Info: {
+    "version": "5.0.8",
+    "gitVersion": "c87e1c23421bf79614baf500fda6622bd90f674e",
+    "modules": [],
+    "allocator": "tcmalloc",
+    "environment": {
+        "distmod": "windows",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+
+
+now if you enter in cmd  "mongod --version"
+and get result as 
+
+db version v5.0.8
+Build Info: {
+    "version": "5.0.8",
+    "gitVersion": "c87e1c23421bf79614baf500fda6622bd90f674e",
+    "modules": [],
+    "allocator": "tcmalloc",
+    "environment": {
+        "distmod": "windows",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+
+then environment variable also set
+
+
+
+
+
+

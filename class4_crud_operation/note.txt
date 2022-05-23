@@ -1,0 +1,26 @@
+to check last data inseted in akshaydata collection
+
+ db.akshaydata.find().pretty()
+
+ MongoDB provides you 2 ways to insert database
+ 1] db.collection.insertOne() ;
+ 2] db.collection.insertMany() ;
+
+
+* create
+to see collections  ->   show collections
+
+1] db.collection.insertOne() ;
+db.akshaydata.insertOne({name:"MongoDB"  , type :"Database" videos : 5 , active :true})
+
+
+2] db.collection.insertMany() ;
+ db.akshaydata.insertMany([{name:"NodeJs" , type:"backENd", videos:40,active:true},
+ {name:"JS",type:"frontend",videos:5,active:true},
+ {name:"python",type:"programming", videos : 50 ,active:false}]);
+
+to check data added in any of three collections
+
+ db.akshaydata.find().pretty();
+
+

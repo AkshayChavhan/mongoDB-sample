@@ -1,0 +1,14 @@
+to run mongo            ->      "mongo"
+to check available dbs   ->     show dbs
+to create or update dbs    ->   use NAME_OF_DATABASE_IN_LOWERCASE
+show dbs  -> will show old dbs only as new dbs content nothing hence not showing
+
+to create collection or data
+db.akshaydata.insertOne({name :"reactJs" ,type:"FrontEnd" , videos : 80 , active:true})
+
+now to see dbs write "show dbs"
+it will show the generated dbs in list
+
+db.akshaydata.find(.pretty
+)
+
